@@ -6,7 +6,9 @@
 import gzip
 import io
 import glob
+import time
 from concurrent import futures
+from multiprocessing import Pool
 
 
 def find_robots(filename):
@@ -29,5 +31,23 @@ def find_all_robots(logdir):
         for robots in pool.map(find_robots, files):
             all_robots.update(robots)
     return all_robots
+
+
+def f(x):
+    time.sleep(0.1)
+    return x * x
+
+if __name__ == '__main__':
+    start = time.time()
+    [f(i) for i in range(10)]
+    end = time.time()
+    print(end - start)  # 1.1022415161132812
+
+    start = time.time()
+    with Pool(processes=4) as pool:
+        pool.map(f, range(10))
+    end = time.time()
+    print(end - start)  # 0.43161535263061523
+
 
 

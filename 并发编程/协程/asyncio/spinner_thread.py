@@ -31,9 +31,10 @@ async def supervisor():
 
 
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    result = loop.run_until_complete(supervisor())
-    loop.close()
+    result = asyncio.run(supervisor())
+    # loop = asyncio.get_event_loop()
+    # result = loop.run_until_complete(supervisor())
+    # loop.close()
     print(f'Answer: {result}')
 
 
