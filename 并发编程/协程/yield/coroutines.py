@@ -1,3 +1,6 @@
+import dis
+
+
 def simple_coro2(a):
     print(f'start a = {a}')
     b = yield a
@@ -5,7 +8,7 @@ def simple_coro2(a):
     c = yield a + b
     print(f'receive c = {c}')
 
-
+dis.dis(simple_coro2)
 # coro2 = simple_coro2(14)
 # print(coro2)
 # next(coro2)
