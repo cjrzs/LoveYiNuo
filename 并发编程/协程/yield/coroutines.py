@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 from dis import dis
 import inspect
+=======
+import dis
+>>>>>>> 07830e7fe61000043962e1d349b4cb92f1bf9218
 
 
 def simple_coro2(a):
@@ -8,6 +12,7 @@ def simple_coro2(a):
     print(f'receive b = {b}')
     c = yield a + b
     print(f'receive c = {c}')
+<<<<<<< HEAD
 print(dis(simple_coro2))
 lines = inspect.getsource(simple_coro2)
 print(lines)
@@ -18,6 +23,15 @@ print(val)  # 66
 # next(coro2)  # TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
 print(coro2.send(15))
 # print(coro2.send(99))
+=======
+
+dis.dis(simple_coro2)
+# coro2 = simple_coro2(14)
+# print(coro2)
+# next(coro2)
+# coro2.send(15)
+# coro2.send(99)
+>>>>>>> 07830e7fe61000043962e1d349b4cb92f1bf9218
 
 
 def averager():
