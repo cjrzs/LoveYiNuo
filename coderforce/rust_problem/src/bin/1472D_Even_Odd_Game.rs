@@ -25,14 +25,13 @@ fn main() {
                 bob += if x % 2 == 1 {*x} else {0};
             }
         }
-        let mut res = "";
-        if alice > bob {
-            res = "Alice";
+        let res = if alice > bob {
+            "Alice"
         } else if alice == bob {
-            res = "Tie";
+            "Tie"
         } else {
-            res = "Bob";
-        }
+            "Bob"
+        };
         ans.push(res);
     }
     for x in ans {
