@@ -23,23 +23,34 @@ fn main() {
                 nums_new.push((x, i + 1));
             }
         }
-        println!("{:?}", nums_new);
+        // println!("{:?}", nums_new);
         let m: i64 = nums_new.len() as i64;
-        for (x, _i) in nums_new.iter() {
-            let mut l: i64 = 0;
-            let mut r = m as i64;
-            while l < r {
-                let mid: i64 = (l + r + 1) >> 1;
-                if *x <= nums_new[mid as usize].1 as i64{
-                    l = mid;
-                } else {
-                    r = mid + 1;
+        if m < 2 {
+            ans.push(0);
+        } else {
+            for (x, _i) in nums_new.iter() {
+                let mut l: i64 = 0;
+                let mut r: i64 = m;
+                while l < r {
+                    let mid: i64 = (l + r + 1) >> 1;
+                    if *x > nums_new[mid as usize].1 as i64{
+                        l = mid;
+                    } else {
+                        r = mid - 1;
+                    }
                 }
+                // println!("r: {r}");
+                if r == 0 {
+                    if *x > nums_new[0].1 as i64 {
+                        res += 1;
+                    }
+                } else {
+                    res += r + 1;
+                }
+                // res += m - r + 1
             }
-            println!("r: {r}");
-            res += m - r + 1
+            ans.push(res);
         }
-        ans.push(res);
     }
     for x in ans {
         println!("{x}");
