@@ -31,7 +31,11 @@ fn main() {
                 secend = nums[i];
             } else {
                 res += 1;
-                first = nums[i];
+                if first > secend {
+                    secend = nums[i];
+                } else {
+                    first = nums[i];
+                }
             }
         }
         ans.push(res);
