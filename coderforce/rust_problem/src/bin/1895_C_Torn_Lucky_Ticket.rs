@@ -83,7 +83,6 @@ fn main() {
                 ans += cnt[len_r][diff as usize];
             }
         }
-
     }
     
     // 第二趟：当作右串 R，只枚举 len_l < len(R)，并且 (len(R)+len_l)%2==0
