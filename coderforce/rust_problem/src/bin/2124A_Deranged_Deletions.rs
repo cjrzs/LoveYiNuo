@@ -9,7 +9,7 @@ fn main() {
     let t = nums[0];
     let mut ans = Vec::new();
     for _ in 0..t {
-        let nums = input_num();
+        let nums = input_num(); 
         let n = nums[0] as usize;
         let nums = input_num();
         if n == 1 {
